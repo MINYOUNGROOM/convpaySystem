@@ -1,8 +1,10 @@
 // Java 프로그래밍 - 변수와 자료형_1
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
@@ -171,32 +173,54 @@ public class Main {
         System.out.println("l2 =" + l2);
 
 //      1-7. contains
+        System.out.println(l2.contains(1));
+        System.out.println(l2.contains(6));
 
 
-
-//      2. Maps
+//      2. Maps -- 순서 보장이 x
         System.out.println("== Maps ==");
+        HashMap map = new HashMap();
 
 
 //      2-1. put
+        map.put("kiwi", 9000);
+        map.put("apple", 5000);
+        map.put("mango", 4000);
+        System.out.println("map" + map);
 
 
 //      2-2. get
-
+        System.out.println(map.get("madarin")); // null
+        System.out.println(map.get("kiwi")); // 9000
 
 //      2-3. size
+        System.out.println(map.size());
 
 //      2-4. remove
-
+        System.out.println(map.remove("kiwi"));
+        System.out.println(map.remove("madarin")); // null
 
 //      2-5. containsKey
-
+        System.out.println(map.containsKey("apple"));
+        System.out.println(map.containsKey("kiwi"));
 
 
 //      3. Generics
         System.out.println("== Generics ==");
+        ArrayList l3 = new ArrayList();
 
+        l3.add("hello");
+        l3.add(3);
+        System.out.println("l3 :" + l3);
 
+        ArrayList<String> l4 = new ArrayList<String>();
+//        l4.add(1);   --  1을 넣으면 에러가 나는 이유는 제네릭으로 Stirng 타입으로 한정해두었기 때문이다.
+        System.out.println(l4.add("문자열만 가능"));
+        System.out.println(l4.get(0));
+
+        HashMap<String,Integer> map2 = new HashMap<>();
+        map2.put("blueberry",9000);
+        System.out.println("map2="+map2);
 
     }
 }
