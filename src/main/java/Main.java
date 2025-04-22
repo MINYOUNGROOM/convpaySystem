@@ -2,6 +2,7 @@
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class Main {
@@ -198,6 +199,78 @@ public class Main {
 
 
 
+        //===============================================================================
+
+//      6. 삼항 연산자
+        System.out.println("== 삼항 연산자 ==");
+        int a = 100 ;
+        String aResult= (a == 100) ? "yes": "no";
+        System.out.println("aResult = " + aResult);
+
+        //===============================================================================
+
+
+//      1. 비트 논리 연산자
+        System.out.println("== 비트 논리 연산자 ==");
+//      1-1. AND 연산자 (&) -- 두 개의 비트 값이 모두 1인 경우에만 결과 1
+        int num1= 5;
+        int num2= 3;
+        int result = 0;
+
+        result = num1 & num2;
+        System.out.println("result = " + result);
+        System.out.printf("%04d\n", Integer.parseInt(Integer.toBinaryString(num2)));
+        System.out.printf("%04d\n", Integer.parseInt(Integer.toBinaryString(num1)));
+        System.out.printf("%04d\n", Integer.parseInt(Integer.toBinaryString(result)));
+
+//      1-2. OR 연산자 (|) -- 두 개의 비트 값 중 하나라도 1이면 결과 1
+        result = num1 | num2;
+        System.out.println("result = " + result);
+        System.out.printf("%04d\n", Integer.parseInt(Integer.toBinaryString(num2)));
+        System.out.printf("%04d\n", Integer.parseInt(Integer.toBinaryString(num1)));
+        System.out.printf("%04d\n", Integer.parseInt(Integer.toBinaryString(result)));
+
+//      1-3. XOR 연산자 (^) -- 두 개의 비트 값이 같으면 0, 다르면 1
+        result = num1 ^ num2;
+        System.out.println("result = " + result);
+        System.out.printf("%04d\n", Integer.parseInt(Integer.toBinaryString(num2)));
+        System.out.printf("%04d\n", Integer.parseInt(Integer.toBinaryString(num1)));
+        System.out.printf("%04d\n", Integer.parseInt(Integer.toBinaryString(result)));
+
+//      1-4. 반전 연산자 (~) -- 비트 값이 0이면 1로 , 1이면 0으로 반전
+        num1 = 5;
+        result = ~num1;
+        System.out.println("result = " + result);
+        System.out.printf("%04d\n", Integer.parseInt(Integer.toBinaryString(num1)));
+        System.out.printf("%s\n", Integer.toBinaryString(result));
+
+
+
+//      2. 비트 이동 연산자
+        System.out.println("== 비트 이동 연산자 ==");
+//      2-1. << 연산자 -- 비트를 왼쪽으로 이동 뒤 숫자만큼 0을 붙힌다
+        int numA = 3;
+        result = numA << 1;
+
+        System.out.println("result = " + result);
+        System.out.printf("%04d\n", Integer.parseInt(Integer.toBinaryString(numA)));
+        System.out.printf("%04d\n", Integer.parseInt(Integer.toBinaryString(result)));
+
+//      2-2. >> 연산자 -- 비트를 오른쪽인 것을 숫자만큼 0을 삭제시킨다
+        result = numA >> 1;
+        System.out.println("result = " + result);
+        System.out.printf("%04d\n", Integer.parseInt(Integer.toBinaryString(numA)));
+        System.out.printf("%04d\n", Integer.parseInt(Integer.toBinaryString(result)));
+
+//      2-3. >>> 연산자 -- 부호 비트 상관 없이 0으로 채움
+        numA = -5;
+        result = numA >> 1;
+        System.out.printf("%s\n", Integer.toBinaryString(numA));
+        System.out.printf("%s\n", Integer.toBinaryString(result));
+
+        result = numA >>> 1;
+        System.out.printf("%s\n", Integer.toBinaryString(numA));
+        System.out.printf("%s\n", Integer.toBinaryString(result));
     }
 }
 
