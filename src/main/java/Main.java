@@ -2,6 +2,7 @@
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 
@@ -329,11 +330,47 @@ public class Main {
         for (int i = 0; i < 100; i++) {
             waterTemperature++;  // ** 이 과정을 놓침 **
             if (waterTemperature % 10 == 0) {              // waterTemperature 을 어떻게 해야 10의 배수라는 걸 뜻할까
-                 System.out.println(waterTemperature + "도 입니다.");
+                System.out.println(waterTemperature + "도 입니다.");
+            }
+        }
 
+
+//      Q1. 아래와 같이 3x3 행렬이 2차원 배열로 초기화 되어있다.
+//          모든 원소를 1로 변경하고, 대각 원소는 10으로 변경하시오.
+        int [][] testArray1 = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+
+        for (int i = 0; i < testArray1.length; i++) {
+            for (int j = 0; j < testArray1[i].length ; j++) {
+                testArray1[i][j] = 1;
+
+                if(i == j){
+                    testArray1[i][j] = 10;
+                }
             }
 
+            for(int[] temp : testArray1){
+                for(int ed : temp){
+                    System.out.print(ed + " ");
+                }
+                System.out.println();
+            }
+
+
+
         }
+//            int [][] testArray2 ={{1,1,1},{1,1,1},{1,1,1}};
+//                for (int[] array : testArray2){
+//                    int x;
+//                    int y;
+//                    if(int[x] == int[y]){
+//                        int x = 10;
+//                        int y =10;
+//                    }
+//                    System.out.println("array" + Arrays.toString(array));
+//                }
     }
+
+
 }
+
 
