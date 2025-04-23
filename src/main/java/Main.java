@@ -354,9 +354,6 @@ public class Main {
                 }
                 System.out.println();
             }
-
-
-
         }
 //            int [][] testArray2 ={{1,1,1},{1,1,1},{1,1,1}};
 //                for (int[] array : testArray2){
