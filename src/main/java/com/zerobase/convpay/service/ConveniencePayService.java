@@ -11,8 +11,12 @@ import com.zerobase.convpay.dto.PayResult;
  */
 public class ConveniencePayService {
 
+    private  final MoneyAdapter moneyAdapter = new MoneyAdapter();
+
+
     // TODO : 결제 개발필요
     public PayResponse pay(PayRequest request) {
+        moneyAdapter.use();
         return new PayResponse(PayResult.SUCCESS, 100);
     }
 
