@@ -18,7 +18,7 @@ public class ConveniencePayService {
     public PayResponse pay(PayRequest request) {
         MoneyUseResult moneyUseResult = moneyAdapter.use(request.getPayAmount());
 
-        // 보통 실패 Exception이 계속 추가될 수 있기 때문에
+        // 보통 실패 Exception 이 계속 추가될 수 있기 때문에
         // 실패 경우를 위에 적어주고 맨 아래  성공 케이스를 넣어준다.
         // fail fast
         // Method()
@@ -39,7 +39,8 @@ public class ConveniencePayService {
 
     // TODO : 결제취소 개발필요
     public PayCancelResponse payCancle(PayCancelRequest payCancelRequest) {
+        moneyAdapter.useCancel(payCancelRequest.getPayCancelAmount());
 
-
+        return null;
     }
 }

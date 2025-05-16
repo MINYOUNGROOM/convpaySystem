@@ -12,7 +12,7 @@ public class MoneyAdapter {
         return MoneyUseResult.USE_SUCCESS;
     }
 
-    public void useCancel(){
+    public void useCancel(Integer payCancelAmount){
 
     }
 
