@@ -1,8 +1,10 @@
 package com.zerobase.convpay.dto;
 
+import com.zerobase.convpay.type.PayResult;
+
 public class PayResponse {
     // 결제 결과
-    PayResult payResult;
+    com.zerobase.convpay.type.PayResult payResult;
 
     // 결제 성공 금액
     Integer paidAmount;

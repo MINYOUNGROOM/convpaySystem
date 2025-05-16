@@ -2,6 +2,8 @@ package com.zerobase.convpay.service;
 
 
 import com.zerobase.convpay.dto.*;
+import com.zerobase.convpay.type.MoneyUseResult;
+import com.zerobase.convpay.type.PayResult;
 
 /**
  * [클래스 UML]

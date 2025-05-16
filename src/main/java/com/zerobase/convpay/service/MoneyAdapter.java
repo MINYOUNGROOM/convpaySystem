@@ -1,6 +1,6 @@
 package com.zerobase.convpay.service;
 
-import com.zerobase.convpay.dto.MoneyUseResult;
+import com.zerobase.convpay.type.MoneyUseResult;
 
 public class MoneyAdapter {
     public MoneyUseResult use(Integer payAmount) {
