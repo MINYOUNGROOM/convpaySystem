@@ -3,6 +3,7 @@ package com.zerobase.convpay.service;
 
 import com.zerobase.convpay.dto.*;
 import com.zerobase.convpay.type.MoneyUseResult;
+import com.zerobase.convpay.type.PayCancelResult;
 import com.zerobase.convpay.type.PayResult;
 
 /**
@@ -41,6 +42,6 @@ public class ConveniencePayService {
     public PayCancelResponse payCancle(PayCancelRequest payCancelRequest) {
         moneyAdapter.useCancel(payCancelRequest.getPayCancelAmount());
 
-        return null;
+        return new PayCancelResponse(PayCancelResult.PAY_CANCEL_SUCCESS, 100);
     }
 }
