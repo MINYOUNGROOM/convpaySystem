@@ -1,5 +1,6 @@
 package com.zerobase.convpay.service;
 
+import com.zerobase.convpay.type.MoneyUseCancelResult;
 import com.zerobase.convpay.type.MoneyUseResult;
 
 public class MoneyAdapter {
@@ -12,7 +13,12 @@ public class MoneyAdapter {
         return MoneyUseResult.USE_SUCCESS;
     }
 
-    public void useCancel(Integer payCancelAmount){
+    public MoneyUseCancelResult useCancel(Integer payCancelAmount){
+        System.out.println("payCancelAmount.useCancel = " + payCancelAmount);
+        if(payCancelAmount < 100){
+            return MoneyUseCancelResult.MONEY_USE_CANCEL_FAIL;
+        }
+        return MoneyUseCancelResult.MONEY_USE_CANCEL_SUCCESS;
 
     }
 
