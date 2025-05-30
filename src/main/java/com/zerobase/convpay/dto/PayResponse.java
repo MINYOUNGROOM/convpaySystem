@@ -4,10 +4,19 @@ import com.zerobase.convpay.type.PayResult;
 
 public class PayResponse {
     // 결제 결과
-    com.zerobase.convpay.type.PayResult payResult;
+    PayResult payResult;
 
     // 결제 성공 금액
     Integer paidAmount;
+
+    // 객체 내용을 문자열로 변환해주는 메서드
+    @Override
+    public String toString() {
+        return "PayResponse{" +
+                "payResult=" + payResult +
+                ", paidAmount=" + paidAmount +
+                '}';
+    }
 
     public PayResponse(PayResult payResult, Integer paidAmount) {
         this.payResult = payResult;

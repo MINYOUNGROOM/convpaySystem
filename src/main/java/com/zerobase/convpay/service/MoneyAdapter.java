@@ -14,7 +14,7 @@ public class MoneyAdapter {
     }
 
     public MoneyUseCancelResult useCancel(Integer payCancelAmount){
-        System.out.println("payCancelAmount.useCancel = " + payCancelAmount);
+        System.out.println("MoneyAdapter.useCancel = " + payCancelAmount);
         if(payCancelAmount < 100){
             return MoneyUseCancelResult.MONEY_USE_CANCEL_FAIL;
         }
