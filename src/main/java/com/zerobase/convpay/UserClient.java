@@ -6,6 +6,7 @@ import com.zerobase.convpay.dto.PayRequest;
 import com.zerobase.convpay.dto.PayResponse;
 import com.zerobase.convpay.service.ConveniencePayService;
 import com.zerobase.convpay.type.ConvenienceType;
+import com.zerobase.convpay.type.PayMethodType;
 
 import java.sql.SQLOutput;
 
@@ -16,7 +17,7 @@ public class UserClient {
         ConveniencePayService conveniencePayService = new ConveniencePayService();
 
         // 1. 결제 1000원
-        PayRequest payRequest = new PayRequest(ConvenienceType.GS25, 1000);
+        PayRequest payRequest = new PayRequest(PayMethodType.MONEY, ConvenienceType.GS25, 1000);
         PayResponse payResponse = conveniencePayService.pay(payRequest);
 
         System.out.println(payResponse);

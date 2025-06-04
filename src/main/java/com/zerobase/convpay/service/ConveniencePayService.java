@@ -2,10 +2,7 @@ package com.zerobase.convpay.service;
 
 
 import com.zerobase.convpay.dto.*;
-import com.zerobase.convpay.type.MoneyUseCancelResult;
-import com.zerobase.convpay.type.MoneyUseResult;
-import com.zerobase.convpay.type.PayCancelResult;
-import com.zerobase.convpay.type.PayResult;
+import com.zerobase.convpay.type.*;
 
 /**
  * [클래스 UML]
@@ -14,9 +11,21 @@ import com.zerobase.convpay.type.PayResult;
 public class ConveniencePayService { // 편결이
 
     private final MoneyAdapter moneyAdapter = new MoneyAdapter();
+    private final CardAdapter cardAdapter = new CardAdapter();
 
-    public PayResponse pay(PayRequest request) {
-        MoneyUseResult moneyUseResult = moneyAdapter.use(request.getPayAmount());
+    public PayResponse pay(PayRequest payrequest) {
+        CardUseResult cardUseResult;
+        MoneyUseResult moneyUseResult;
+
+
+        if(payrequest.getPayMethodType() == PayMethodType.CARD){
+            cardAdapter.authorization();
+            cardAdapter.approval();
+            cardUseResult =  cardAdapter.capture(payrequest.getPayAmount()); // 여기서 반환값을 받기엔 해당 값을 가지고 있어줘야해서 위 지역변수로 빼줌
+        } else {
+            moneyUseResult = moneyAdapter.use(payrequest.getPayAmount());
+        }
+
 
         // 실패 케이스
         if (moneyUseResult == MoneyUseResult.USE_FAIL) {
