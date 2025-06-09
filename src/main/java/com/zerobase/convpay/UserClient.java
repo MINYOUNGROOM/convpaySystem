@@ -8,7 +8,6 @@ import com.zerobase.convpay.service.ConveniencePayService;
 import com.zerobase.convpay.type.ConvenienceType;
 import com.zerobase.convpay.type.PayMethodType;
 
-import java.sql.SQLOutput;
 
 public class UserClient {
     public static void main(String[] args) {
