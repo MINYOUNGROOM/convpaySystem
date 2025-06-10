@@ -16,13 +16,13 @@ public class UserClient {
         ConveniencePayService conveniencePayService = new ConveniencePayService();
 
         // 1. 결제 1000원
-        PayRequest payRequest = new PayRequest(PayMethodType.MONEY, ConvenienceType.GS25, 1000);
+        PayRequest payRequest = new PayRequest(PayMethodType.CARD, ConvenienceType.GS25, 1000);
         PayResponse payResponse = conveniencePayService.pay(payRequest);
 
         System.out.println(payResponse);
 
         // 2. 취소 500원
-        PayCancelRequest payCancelRequest = new PayCancelRequest(ConvenienceType.GS25, 500);
+        PayCancelRequest payCancelRequest = new PayCancelRequest(PayMethodType.MONEY, ConvenienceType.GS25, 500);
         PayCancelResponse payCancelResponse = conveniencePayService.payCancel(payCancelRequest);
 
         System.out.println(payCancelResponse);

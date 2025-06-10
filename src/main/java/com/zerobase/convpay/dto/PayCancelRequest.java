@@ -4,19 +4,19 @@ import com.zerobase.convpay.type.ConvenienceType;
 import com.zerobase.convpay.type.PayMethodType;
 
 public class PayCancelRequest {
+    // 결제 수단
+    PayMethodType payMethodType;
     // 편의점 종류
     ConvenienceType convenienceType;
     // 결제 취소 금액
     Integer payCancelAmount;
-    // 결제 수단
-    PayMethodType payMethodType;
 
 
     // 생성자
-    public PayCancelRequest(ConvenienceType convenienceType, Integer payCancelAmount, PayMethodType payMethodType) {
+    public PayCancelRequest( PayMethodType payMethodType, ConvenienceType convenienceType, Integer payCancelAmount) {
+        this.payMethodType = payMethodType;
         this.convenienceType = convenienceType;
         this.payCancelAmount = payCancelAmount;
-        this.payMethodType = payMethodType;
     }
 
     // getter & setter
