@@ -12,6 +12,10 @@ public class ConveniencePayService { // 편결이
 
     private final MoneyAdapter moneyAdapter = new MoneyAdapter();
     private final CardAdapter cardAdapter = new CardAdapter();
+//    private final DiscountInterface discountInterface = new DiscountByPayMethod();
+    // 예로들어, 정책이 바뀌어서 결제 수단 말고 편의점 으로 할인이 되게 하고 싶어요
+    // ~ 한다면 다시 아래껄로 사용
+    private final DiscountInterface discountInterface = new DiscountByConvenience();
 
     public PayResponse pay(PayRequest payrequest) {
         PaymentInterface paymentInterface;
@@ -22,17 +26,18 @@ public class ConveniencePayService { // 편결이
             paymentInterface = moneyAdapter;
         }
 
-        PaymentResult paymentResult = paymentInterface.payment(payrequest.getPayAmount());
+        Integer discountAmount = discountInterface.getDiscountAmount(payrequest);
+        PaymentResult paymentResult =
+                paymentInterface.payment(discountAmount);
 
         // 실패 케이스
         if (paymentResult == PaymentResult.PAYMENT_FAIL){
             return new PayResponse(PayResult.FAIL, 0);
         }
         // 성공 케이스
-        return new PayResponse(PayResult.SUCCESS, payrequest.getPayAmount());
+        return new PayResponse(PayResult.SUCCESS, discountAmount);
     }
 
-    // TDD 상 메소드를 만들면 테스트 케이스 구현
     public PayCancelResponse payCancel(PayCancelRequest payCancelRequest) {
         PaymentInterface paymentInterface;
 

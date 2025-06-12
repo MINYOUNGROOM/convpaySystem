@@ -22,7 +22,8 @@ public class PayRequest {
     }
 
     // 생성자
-    public PayRequest(PayMethodType payMethodType, ConvenienceType convenienceType, Integer payAmount) {
+    public PayRequest(PayMethodType payMethodType,
+                      ConvenienceType convenienceType, Integer payAmount) {
         this.payMethodType = payMethodType;
         this.convenienceType = convenienceType;
         this.payAmount = payAmount;
