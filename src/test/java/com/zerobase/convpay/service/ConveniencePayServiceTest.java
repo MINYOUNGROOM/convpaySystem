@@ -10,15 +10,24 @@ import com.zerobase.convpay.type.PayMethodType;
 import com.zerobase.convpay.type.PayResult;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ConveniencePayServiceTest {
-    ConveniencePayService conveniencePayService = new ConveniencePayService();
+    ConveniencePayService conveniencePayService = new ConveniencePayService(
+            new HashSet<>(
+                    Arrays.asList(new MoneyAdapter(), new CardAdapter())
+            ),
+            new DiscountByConvenience()
+    );
 
     @Test
     void pay_success() {
         //given
-        PayRequest payRequest = new PayRequest(PayMethodType.MONEY, ConvenienceType.CU, 50);
+        PayRequest payRequest = new PayRequest(
+                PayMethodType.MONEY, ConvenienceType.CU, 50);
         //when
         PayResponse payResponse = conveniencePayService.pay(payRequest);
         //then
@@ -29,7 +38,8 @@ class ConveniencePayServiceTest {
     @Test
     void pay_fail() {
         //given
-        PayRequest payRequest = new PayRequest(PayMethodType.MONEY, ConvenienceType.CU, 1500_001);
+        PayRequest payRequest = new PayRequest(
+                PayMethodType.MONEY, ConvenienceType.CU, 1500_001);
         //when
         PayResponse payResponse = conveniencePayService.pay(payRequest);
         //then
@@ -41,7 +51,8 @@ class ConveniencePayServiceTest {
     @Test
     void pay_cancel_success() {
         //given
-        PayCancelRequest payCancelRequest = new PayCancelRequest(PayMethodType.MONEY, ConvenienceType.CU, 1000);
+        PayCancelRequest payCancelRequest = new PayCancelRequest(
+                PayMethodType.MONEY, ConvenienceType.CU, 1000);
         //when
         PayCancelResponse payCancelResponse = conveniencePayService.payCancel(payCancelRequest);
         //then
@@ -52,7 +63,8 @@ class ConveniencePayServiceTest {
     @Test
     void pay_cancel_fail() {
         //given
-        PayCancelRequest payCancelRequest = new PayCancelRequest(PayMethodType.MONEY, ConvenienceType.CU, 99);
+        PayCancelRequest payCancelRequest = new PayCancelRequest(
+                PayMethodType.MONEY, ConvenienceType.CU, 99);
         //when
         PayCancelResponse payCancelResponse = conveniencePayService.payCancel(payCancelRequest);
         //then
