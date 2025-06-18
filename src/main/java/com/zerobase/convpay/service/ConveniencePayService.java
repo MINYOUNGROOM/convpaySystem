@@ -3,6 +3,7 @@ package com.zerobase.convpay.service;
 
 import com.zerobase.convpay.dto.*;
 import com.zerobase.convpay.type.*;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +13,8 @@ import java.util.Set;
  * [클래스 UML]
  * 사용자 -> 결제 서비스 -> 머니 어댑터
  */
+
+@Component
 public class ConveniencePayService { // 편결이
 
     private final CardAdapter cardAdapter = new CardAdapter();
@@ -22,14 +25,14 @@ public class ConveniencePayService { // 편결이
     private final DiscountInterface discountInterface;
 
     public ConveniencePayService(Set<PaymentInterface> paymentInterfaceSet,
-                                 DiscountInterface discountInterface) {
+                                 DiscountInterface discountByConvenience) {
         paymentInterfaceSet.forEach(
                 paymentInterface -> paymentInterfaceMap.put(
                         paymentInterface.getPayMethodType(), paymentInterface
                 )
         );
 
-        this.discountInterface = discountInterface;
+        this.discountInterface = discountByConvenience;
     }
 
     public PayResponse pay(PayRequest payrequest) {
