@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 public class DiscountByPayMethod implements DiscountInterface{
     @Override
     public Integer getDiscountAmount(PayRequest payRequest) {
+        System.out.println("DiscountByPayMethod called");
         switch (payRequest.getPayMethodType()){
             case MONEY -> {
                 return payRequest.getPayAmount() * 7 / 10;
